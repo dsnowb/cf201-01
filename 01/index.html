@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math!</title>
+  </head>
+  <body>
+    <script>
+      var calc = function() {
+
+        while (true) {
+          //get name
+          var name = prompt('If you would, please enter your name: ');
+          console.log('name: ', name);
+
+          //get first operand
+          var operand1 = prompt('Hello, ' + name + '. This is the world\'s simplest calculator. Please enter number: ');
+          console.log('operand1: ', operand1);
+          //operand validation should go here
+
+          //get operator
+          var operator = prompt(operand1 + ' ? ? = ?\n Please enter a mathematical operator, ' + name + '.\n Available operators are: + - * /');
+          console.log('operator: ', operator);
+          if (operator !== '+' && operator !== '-' && operator !== '*' && operator !== '/') {
+            alert('You\'ve entered an invalid operator. :\(');
+            return false;
+          }
+
+          //get second operand
+          var operand2 = prompt(operand1 + ' ' + operator + ' ? = ?\nPlease enter another number, ' + name + ': ');
+          console.log('operand2: ', operand2);
+          if (operator==='/' && operand2==='0') {
+            alert('Error: Division by zero. :\(');
+            return false;
+          }
+          //operand validation should go here
+
+          //get result and print
+          var result = 0;
+          if (operator==='+') result = parseFloat(operand1) + parseFloat(operand2);
+          else if (operator==='-') result = operand1 - operand2;
+          else if (operator==='*') result = operand1 * operand2;
+          else if (operator==='/') result = operand1 / operand2;
+          console.log('result: ', result);
+          alert('Well, ' + name + ', ' + operand1 + ' ' + operator + ' ' + operand2 + ' = ' + result);
+
+          //check end loop
+          var checkCont = prompt('Would you like to go again? [Y/n]');
+          if (checkCont !== 'Y') return true;
+
+        }
+      }
+
+      calc();
+    </script>
+
+  </body>
+</html>
